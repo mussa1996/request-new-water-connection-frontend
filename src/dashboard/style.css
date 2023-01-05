@@ -1,0 +1,98 @@
+/* Googlefont Poppins CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+.container {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-container {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+ margin-top: 20px;
+  padding: 6rem 1rem;
+  height: 600px;
+  text-align: center;
+  border: 1px solid rgb(156, 153, 153);
+  margin: 50px 150px 0px 150px;
+}
+
+p {
+  padding: 1rem;
+  font-size: 1.6rem;
+}
+.home-link{
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.home-link:hover{
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.button-for-apply p{
+  color: rgb(32, 19, 19);
+  text-decoration: none;
+  font-size: 1.6rem;
+  text-align: left;
+  margin-top: -30px;
+}
+.button-for-apply button{
+  position: absolute;
+  right:200px;
+  margin-top:-80px;
+  background:hwb(204 35% 3%);
+  color: #fff;
+  font-size: 5px;
+  font-weight: 300;
+  padding: 5px 10px;
+  border-radius:10px;
+  border: none;
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  cursor: pointer;
+
+
+}
+.button-for-apply button:hover{
+  background-color: #fff;
+  color: blue;
+  border: 1px solid blue;
+}
+input[type="text"] {
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+.button-search {
+  width: 10%;
+  background:hwb(204 35% 3%);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.button-search:hover {
+  background-color: #0a2b86;
+}
+.search-button{
+
+}
+.list-all-doc{
+
+}

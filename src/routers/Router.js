@@ -1,12 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, StaticRouter, Switch } from "react-router-dom";
 import Login from "../components/views/Login";
 import Register from "../components/views/RegisterUser";
 import Forget from "../components/views/Forgot"
 import "../App.css"
-
-
-
+import "../dashboard/dash.css"
+import "../dashboard/dark.scss"
+// import ProtectedRoute from "./ProtectedRoute";
+import Dashboard from "../user/userDashboard/UserComponents/Dashboard";
+import Footer from "../user/userDashboard/Footer";
+import Header from "../user/userDashboard/Header";
+import Menu from "../user/userDashboard/Menu";
 export default function Routers() {
   // const { darkMode } = useContext(DarkModeContext);
 
@@ -111,6 +115,21 @@ export default function Routers() {
               />
             
             <Route exact path="/" component={Index} /> */}
+
+        {/* user routes  */}
+        {/* <ProtectedRoute path="/user-dashboard">
+              <Dashboard />
+              <Footer />
+              <Header />
+              <Menu />
+              </ProtectedRoute> */}
+              <Router path="/user-dashboard">
+              <Dashboard />
+              <Footer />
+              <Header />
+              <Menu />
+              </Router>
+
           </Switch>
         </Router>
       </div>
