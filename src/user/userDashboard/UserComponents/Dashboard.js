@@ -106,7 +106,7 @@ export default class Dashboard extends Component {
   {/* search button for document */}
   <div className='search-button'>
   <div className="search-box">
-        <input type="text" placeholder="Search..."/>
+        <input type="text" placeholder="Search..." className='input-text'/>
         <button className='button-search'>  <i className='bx bx-search' ></i> Search</button>
        
       </div>

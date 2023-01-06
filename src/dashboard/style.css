@@ -68,7 +68,7 @@ p {
   color: blue;
   border: 1px solid blue;
 }
-input[type="text"] {
+.input-text {
   width: 60%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -89,10 +89,4 @@ input[type="text"] {
 }
 .button-search:hover {
   background-color: #0a2b86;
-}
-.search-button{
-
-}
-.list-all-doc{
-
 }

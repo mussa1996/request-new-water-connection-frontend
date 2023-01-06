@@ -13,23 +13,23 @@ body{
     justify-content: center;
     background: #4070f4;
 }
-.container{
+.user-container{
     position: relative;
-    max-width: 900px;
-    width: 100%;
-    border-radius: 6px;
+    /* max-width: 900px;
+    width: 900px; */
     padding: 30px;
+    border-radius: 10px;
     margin: 0 15px;
     background-color: #fff;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    box-shadow: 20px 20px 20px 20px rgba(7, 7, 7, 0.1);
 }
-.container header{
+.user-container header{
     position: relative;
     font-size: 20px;
     font-weight: 600;
     color: #333;
 }
-.container header::before{
+.user-container header::before{
     content: "";
     position: absolute;
     left: 0;
@@ -39,34 +39,26 @@ body{
     border-radius: 8px;
     background-color: #4070f4;
 }
-.container form{
+.user-container form{
     position: relative;
     margin-top: 16px;
-    min-height: 490px;
+    min-height:120vh;
+    width:900px;
     background-color: #fff;
     overflow: hidden;
 }
-.container form .form{
+.user-container form .form{
     position: absolute;
     background-color: #fff;
     transition: 0.3s ease;
 }
-.container form .form.second{
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(100%);
-}
-form.secActive .form.second{
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(0);
-}
+
 form.secActive .form.first{
     opacity: 0;
     pointer-events: none;
     transform: translateX(-100%);
 }
-.container form .title{
+.user-container form .title{
     display: block;
     margin-bottom: 8px;
     font-size: 16px;
@@ -74,11 +66,16 @@ form.secActive .form.first{
     margin: 6px 0;
     color: #333;
 }
-.container form .fields{
+.user-container form .fields{
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+.input-field{
+    position: relative;
+    width: 100%;
+    margin-bottom: 100px;
 }
 form .fields .input-field{
     display: flex;
@@ -113,7 +110,7 @@ form .fields .input-field{
 .input-field input[type="date"]:valid{
     color: #333;
 }
-.container form button, .backBtn{
+.user-container form button, .backBtn{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -125,15 +122,18 @@ form .fields .input-field{
     color: #fff;
     border-radius: 5px;
     margin: 25px 0;
-    background-color: #4070f4;
+    background:hwb(204 35% 3%);
     transition: all 0.3s linear;
     cursor: pointer;
 }
-.container form .btnText{
+.user-container form .btnText{
     font-size: 14px;
     font-weight: 400;
 }
 form button:hover{
+    background-color: #265df2;
+}
+form .backBtn:hover{
     background-color: #265df2;
 }
 form button i,
@@ -152,10 +152,10 @@ form .buttons button , .backBtn{
 }
 
 @media (max-width: 750px) {
-    .container form{
+    .user-container form{
         overflow-y: scroll;
     }
-    .container form::-webkit-scrollbar{
+    .user-container form::-webkit-scrollbar{
        display: none;
     }
     form .fields .input-field{
