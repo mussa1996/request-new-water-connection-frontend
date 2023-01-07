@@ -150,7 +150,15 @@ form .buttons{
 form .buttons button , .backBtn{
     margin-right: 14px;
 }
-
+input.input-error,
+select.input-error,
+select.option
+{
+    border-color: #f00;
+}
+button:disabled{
+    opacity: 0.35;
+}
 @media (max-width: 750px) {
     .user-container form{
         overflow-y: scroll;

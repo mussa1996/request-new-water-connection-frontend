@@ -12,7 +12,7 @@ import Footer from "../user/userDashboard/Footer";
 import Header from "../user/userDashboard/Header";
 import Menu from "../user/userDashboard/Menu";
 import UserForm from "../user-form/userForm";
-import CountryTest from "../user-form/open-cade"
+import validation from "../user-form/validation"
 export default function Routers() {
   // const { darkMode } = useContext(DarkModeContext);
 
@@ -25,7 +25,7 @@ export default function Routers() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/forgot-password" component={Forget} />
-            <Route exact path="/country-test" component={CountryTest} />
+            <Route exact path="/validation" component={validation} />
    
             {/* order routes */}
             {/* <ProtectedRoute path="/order-dashboard" >
