@@ -16,7 +16,7 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
  margin-top: 20px;
   padding: 6rem 1rem;
-  height: 600px;
+  height: 100vh;
   text-align: center;
   border: 1px solid rgb(156, 153, 153);
   margin: 50px 150px 0px 150px;
@@ -89,4 +89,140 @@ p {
 }
 .button-search:hover {
   background-color: #0a2b86;
+}
+
+/* container card css */
+.list-all-doc{
+  position: relative;
+  display:grid;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 10px 0;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+  
+
+}
+.list-all-doc:hover{
+  box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+  transform: translateY(-5px);
+  transition: all 0.3s linear;
+  background-color: rgb(248, 244, 239);
+}
+.doc-title{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(44, 41, 41);
+  margin-left: 0px;
+  letter-spacing: 1px;
+  text-indent: -100px;
+
+}
+.doc-number{
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+}
+.client-name{
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(16, 56, 109);
+  letter-spacing: 1px;
+ 
+}
+.client-info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(16, 56, 109);
+}
+.date-creation{
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  letter-spacing: 1px;
+}
+.phone{
+  font-size: 14px;
+  font-weight: 400;
+  font-weight: 600;
+  color: rgb(16, 56, 109);
+}
+
+.buttons-both{
+  display: flex;
+  align-items: center;
+}
+.buttons-both .edit, .details{
+  margin-right: 14px;
+}
+
+.edit{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  max-width: 200px;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 15px;
+  margin: 25px 0;
+  background:hwb(133 2% 70%);
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+.details-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  max-width: 200px;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 15px;
+  margin: 25px 0;
+  background:hwb(204 35% 3%);
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+.submit{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  max-width: 200px;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 15px;
+ margin: 25px 0;
+  background:hwb(236 3% 25%);
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+.edit:hover{
+  background-color: #265df2;
+}
+.details i{
+    margin: 0 6px;
+}
+.details i{
+  transform: rotate(180deg);
+}
+.buttons-both{
+  align-items: center;
+}
+.buttons-both, .details{
+  margin-right: 14px;
+}
+.details-btn:hover{
+  background-color: #265df2;
 }

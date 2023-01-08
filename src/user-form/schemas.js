@@ -24,6 +24,7 @@ export const basicSchema=yup.object().shape({
     idIssueDate:yup.date().required('Issue date is required'),
     idExpiryDate:yup.date().required('Expiry date is required'),
     idIssueAuthority:yup.string().required('Issue authority is required'),
+    copyPassport:yup.string().required('Copy passport is required'),
 
 
 }

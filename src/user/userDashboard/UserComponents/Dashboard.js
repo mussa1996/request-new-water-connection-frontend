@@ -113,7 +113,31 @@ export default class Dashboard extends Component {
   </div>
   {/* list of all document  */}
 <div className='list-all-doc'>
-  
+ 
+  <div>
+    <p className='doc-title'>Title for Request<span>-</span> <span className='doc-number'>Document Number</span></p>
+    </div>
+    
+        <div className='client-info'>
+        <p className='client-name'>Client Name: <span>Mussa Niyodusenga</span> 
+         <span className='date-creation'> Date creation:</span> 
+         <span className='phone'> Phone:</span>
+        </p>
+        </div>
+        <div className="buttons-both">
+              <div className="details-btn">
+                <i className="uil uil-navigator"></i>
+                <span className="btnText">Details</span>
+              </div>
+              <button className="edit">
+                <span className="btnText">Edit Application</span>
+                <i className="uil uil-navigator"></i>
+              </button>
+              <button className="submit">
+                <span className="btnText">Submitted</span>
+                <i className="uil uil-navigator"></i>
+              </button>
+            </div>
 </div>
 </section>
     </div>

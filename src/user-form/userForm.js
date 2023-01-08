@@ -10,6 +10,17 @@ import { useFormik } from "formik";
 import { basicSchema } from "./schemas";
 import {format} from 'date-fns'
 function UserForm() {
+
+  const styleInside={
+    body:{
+  minHeight: "100vh",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  background: "hwb(204 35% 3%)",
+}
+    
+  }
   const onSubmit = async (values,actions) => {
     await new Promise((resolve)=>setTimeout(resolve,1000));
     actions.resetFom()
@@ -44,6 +55,8 @@ function UserForm() {
         idIssueAuthority: "",
         idNumber: "",
         passportNumber: "",
+        copyPassport:"",
+        copyId:"",
       },
       validationSchema: basicSchema,
       onSubmit,
@@ -61,6 +74,8 @@ function UserForm() {
   const [selectedVillage, setSelectedVillage] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [validate, setValidate] = useState("");
+  const [copyPassport,setCopyPassport]=useState("");
+  const[copyId,setCopyId]=useState("");
   useEffect(() => {
     const fetchProvinces = async () => {
       const response = await Provinces();
@@ -125,11 +140,14 @@ function UserForm() {
   console.log("testing value", value);
   let data = value;
   console.log("testing data", data);
+  console.log("selected district and province and cell",'"'+selectedProvince+'"','"'+selectedDistrict+'"','"'+selectedSector+'"')
+  console.log("sectors test number ",Cells(''+selectedProvince+'',''+selectedDistrict+'',''+selectedSector+''))
   return (
-    <div className="user-container">
+    <div style={styleInside.body}>
+    <div className="user-container" >
       <header>Client information request form</header>
 
-      <form onSubmit={handleSubmit} autoComplete="off">
+      <form onSubmit={handleSubmit}>
         <div className="form first">
           <div className="details personal">
             <span className="title">Personal Details</span>
@@ -338,9 +356,15 @@ function UserForm() {
                   <option disabled selected>
                     --Choose--
                   </option>
-                  {Sectors().map((sector, index) => {
+                  {
+                    selectedDistrict!="" ?(
+                      Sectors(''+selectedProvince+'',''+selectedDistrict+'').map((sector, index) => {
                     return <option key={index}>{sector}</option>;
-                  })}
+                  })
+                    ):null
+
+
+                  }
                 </select>
               </div>
 
@@ -360,9 +384,15 @@ function UserForm() {
                   <option disabled selected>
                     --Choose--
                   </option>
-                  {Cells().map((cell, index) => {
-                    return <option key={index}>{cell}</option>;
-                  })}
+
+                  {
+                    selectedSector!=""?(
+                      Cells(''+selectedProvince+'',''+selectedDistrict+'',''+selectedSector+'').map((cell, index) => {
+                        return <option key={index}>{cell}</option>;
+                      })
+                    ):null
+                  }
+                  
                 </select>
               </div>
             </div>
@@ -530,6 +560,27 @@ function UserForm() {
               </div>
 
               <div className="input-field">
+                {data === "Id" ? (
+                  <label htmlFor="copyId">
+                    Attach Copy of Id:
+                    <input
+                      type="file"
+                      required
+                      id="copyId"
+                      name="copyId"
+                      onChange={(e)=>setCopyId(e.target.files[0])}
+                      value={values.copyId}
+                      onBlur={handleBlur}
+                      className={errors.copyId ? "input-error" : ""}
+                    />
+                    {errors.copyPassport && touched.copyId && (
+                      <p className="error">{errors.copyId}</p>
+                    )}
+                  </label>
+                ) : null}
+              </div>
+
+              <div className="input-field">
                 {data === "Passport" ? (
                   <label htmlFor="idIssueDate">
                     Issued Date:
@@ -572,6 +623,26 @@ function UserForm() {
                   </label>
                 ) : null}
               </div>
+              <div className="input-field">
+                {data === "Passport" ? (
+                  <label htmlFor="copyPassport">
+                    Attach Copy of Passport:
+                    <input
+                      type="file"
+                      required
+                      id="copyPassport"
+                      name="copyPassport"
+                      onChange={(e)=>setCopyPassport(e.target.files[0])}
+                      value={values.copyPassport}
+                      onBlur={handleBlur}
+                      className={errors.copyPassport ? "input-error" : ""}
+                    />
+                    {errors.copyPassport && touched.copyPassport && (
+                      <p className="error">{errors.copyPassport}</p>
+                    )}
+                  </label>
+                ) : null}
+              </div>
             </div>
 
             <div className="buttons">
@@ -587,6 +658,7 @@ function UserForm() {
           </div>
         </div>
       </form>
+    </div>
     </div>
   );
 }
