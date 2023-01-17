@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
 }
-.card-container {
+.card-containers {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
  margin-top: 20px;
   padding: 6rem 1rem;
@@ -116,7 +116,8 @@ p {
   font-size: 20px;
   font-weight: 600;
   color: rgb(44, 41, 41);
-  margin-left: 0px;
+  width: 100vh;
+
   letter-spacing: 1px;
   text-indent: -100px;
 
@@ -131,6 +132,7 @@ p {
   font-weight: 600;
   color: rgb(16, 56, 109);
   letter-spacing: 1px;
+  width: 100vh;
  
 }
 .client-info{
@@ -138,18 +140,21 @@ p {
   align-items: center;
   justify-content: center;
   color: rgb(16, 56, 109);
+ 
 }
 .date-creation{
   font-size: 14px;
   font-weight: 400;
   color: #333;
   letter-spacing: 1px;
+  margin-left: 30px;
 }
 .phone{
   font-size: 14px;
   font-weight: 400;
   font-weight: 600;
   color: rgb(16, 56, 109);
+  margin-left: 30px;
 }
 
 .buttons-both{
@@ -225,4 +230,17 @@ p {
 }
 .details-btn:hover{
   background-color: #265df2;
+}
+.NApplication{
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 15px;
+  margin: 25px 0;
+  padding: 4px;
+  background:hwb(288 3% 14%);
+  transition: all 0.3s linear;
+  cursor: pointer;
 }

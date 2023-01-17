@@ -1,0 +1,270 @@
+.row{
+    margin: 0px;
+    padding: 0px;
+    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+    width: 30%;
+    text-align: center; */
+
+}
+.all-appli{
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+    width: 400px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    background-color: hwb(180 85% 8%);
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+
+}
+.app-name{
+    color: #087752;
+}
+.app-name:hover{
+    color: #9cb1aa;
+}
+.new-name{
+    color: #087752;
+}
+.new-name:hover{
+    color: #9cb1aa;
+}
+.my-name{
+    color: hsl(36, 88%, 38%);
+}
+.my-name:hover{
+    color: #9cb1aa;
+}
+.sent-appli{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+    width: 400px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    background-color: rgb(252, 247, 247);
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.new-appli{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+    width: 400px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    background-color: rgb(238, 225, 225);
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+}
+.officer{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+    width: 350px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    background-color: hwb(204 35% 3%);
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.general{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+    width: 350px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.complete{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+    width: 350px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    background-color: hwb(204 35% 3%);
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.return{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+    width: 350px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.all-appli:hover{
+    background-color: rgb(252, 247, 247);
+    color: #000;
+}
+.sent-appli:hover{
+    background-color: rgb(238, 225, 225);
+    color: #000;
+}
+.new-appli:hover{
+    background-color: hwb(203 85% 8%);
+    color: #000;
+}
+.operson{
+    color: #fff;
+}
+.gperson{
+    color:hwb(204 35% 3%);
+}
+.officer:hover{
+    background-color: hwb(199 5% 29%);
+}
+ .complete:hover{
+    background-color: hwb(199 5% 29%);
+ }
+  .general:hover
+  {background-color: hwb(199 5% 29%);
+  } 
+  .return:hover{
+    background-color: hwb(199 5% 29%);
+}
+.logout{
+    padding-top: 1000px;
+}
+.logo_name{
+    padding-top: 20px;
+    padding-left: 50px;
+    text-decoration: none;
+    list-style: none;
+    color:hwb(199 5% 29%);
+    font-size: 30px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: 0.2rem;
+}
+.nav-item {
+    font-size: 20px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.header-all{
+    padding-top:0px;
+    padding-left:250px;
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+    font-size: 30px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: 0.2rem;
+}
+.home-link-title{
+    padding-top:-78px;
+    padding-left: 50px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+}

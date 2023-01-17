@@ -10,7 +10,7 @@ const signup = (credentials)=>async dispatch=>{
     dispatch({
     type:REQUEST_SIGNUP
 })
-    return axios.post('http://localhost:4500/api/business/signup', credentials)
+    return axios.post('http://localhost:4500/api/user/signup', credentials)
         .then(res => {
             console.log("token",res.data)
             localStorage.setItem('verifyToken', res.data.token);

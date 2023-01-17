@@ -6,13 +6,29 @@ import Forget from "../components/views/Forgot"
 import "../App.css"
 import "../dashboard/dash.css"
 import "../dashboard/dark.scss"
-// import ProtectedRoute from "./ProtectedRoute";
+import ProtectedRoute from "./ProtectedRoute";
 import Dashboard from "../user/userDashboard/UserComponents/Dashboard";
 import Footer from "../user/userDashboard/Footer";
 import Header from "../user/userDashboard/Header";
 import Menu from "../user/userDashboard/Menu";
 import UserForm from "../user-form/userForm";
 import validation from "../user-form/validation"
+import ADashboard from "../admin/adminDashboard/adminComponents/Dashboard";
+import AFooter from "../admin/adminDashboard/Footer";
+import AHeader from "../admin/adminDashboard/Header";
+import AMenu from "../admin/adminDashboard/Menu";
+import Verify from "../components/views/Verify";
+import Forgot from "../components/views/Forgot";
+import Resetpassword from "../components/views/Resetpassword";
+import ListBranch from "../admin/branch/list/list"
+import UpdateBranch from"../admin/branch/update/Update"
+import NewBranch from "../admin/branch/new/New"
+import SingleBranch from"../admin/branch/single/Single"
+import UserList from "../admin/user/list/list"
+// import SingleUser from "../admin/user/single/Single"
+// import UpdateUser from "../admin/user/update/Update"
+import RequestList from"../admin/request/list/list"
+
 export default function Routers() {
   // const { darkMode } = useContext(DarkModeContext);
 
@@ -20,12 +36,14 @@ export default function Routers() {
     <>
       <div class="wrapper">
         <div></div>
-        <Router>
+        <Router> 
           <Switch>
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/forgot-password" component={Forget} />
-            <Route exact path="/validation" component={validation} />
+            <Route exact path="/verification" component={Verify} />
+            <Route exact component={Forgot} path="/forgot-password" />
+            <Route exact component={Resetpassword} path="/resetpassword" />
    
             {/* order routes */}
             {/* <ProtectedRoute path="/order-dashboard" >
@@ -42,15 +60,32 @@ export default function Routers() {
             <ProtectedRoute path="/rating" component={Rating} /> */}
 
             {/* admin routes */}
-            {/* <ProtectedRoute path="/admin-dashboard" >
+             <ProtectedRoute path="/admin-dashboard" >
+             <AHeader />
               <ADashboard />
               <AFooter />
-              <AHeader />
+              
               <AMenu />
 
             </ProtectedRoute>
-
-            <ProtectedRoute path="/list" component={List} />
+            <ProtectedRoute
+                path="/admin/branch/list"
+                component={ListBranch}
+              />
+              <ProtectedRoute
+                path="/admin/branch/update"
+                component={UpdateBranch}
+              />
+                <ProtectedRoute
+                path="/admin/branch/new"
+                component={NewBranch}
+              />
+              <ProtectedRoute path="/admin/branch/single" component={SingleBranch} />
+              <ProtectedRoute path="/admin/user/list" component={UserList} />
+              {/* <ProtectedRoute path="/admin/user/single" component={SingleUser} />
+              <ProtectedRoute path="/admin/user/update" component={UpdateUser} /> */}
+              <ProtectedRoute path="/admin/request/list" component={RequestList} />
+            {/* <ProtectedRoute path="/list" component={List} />
               <ProtectedRoute path="/single" component={Single} />
               <ProtectedRoute path="/award/single" component={AwardSingle} />
               <ProtectedRoute
@@ -64,19 +99,22 @@ export default function Routers() {
               
               <ProtectedRoute path="/service/list" component={ServiceList} />
               <ProtectedRoute path="/product/list" component={ProductList} />
-            <ProtectedRoute path="/award/list" component={AwardList} /> */}
+            <ProtectedRoute path="/award/list" component={AwardList} />  */}
+
+
             {/* user routes */}
-            {/* <ProtectedRoute path="/user-dashboard">
+            <ProtectedRoute path="/user-dashboard">
               <Dashboard />
               <Footer />
               <Header />
               <Menu />
               </ProtectedRoute>
               <ProtectedRoute
-                path="/user/award/single"
-                component={UAwardSingle}
+                path="/user/user-form"
+                component={UserForm}
               />
-              <ProtectedRoute
+             
+              {/* <ProtectedRoute
                 path="/user/product/single"
                 component={UProductSingle}
               />
@@ -115,9 +153,9 @@ export default function Routers() {
               <ProtectedRoute path="/service/new" component={ServiceNew} />
               <ProtectedRoute
                 path="/product/new" component={New}
-              />
+              /> */}
             
-            <Route exact path="/" component={Index} /> */}
+            <Route exact path="/" component={Login} /> 
 
         {/* user routes  */}
         {/* <ProtectedRoute path="/user-dashboard">
@@ -126,14 +164,25 @@ export default function Routers() {
               <Header />
               <Menu />
               </ProtectedRoute> */}
-              <Route exact path="/user-form" component={UserForm} />
+              {/* <Route exact path="/user-form" component={UserForm} />
               <Router path="/user-dashboard">
               <Dashboard />
               <Footer />
               <Header />
               <Menu />
-              </Router>
+              </Router> */}
 
+
+{/* admin router */}
+
+{/* <Router path="/admin-dashboard" >
+              <ADashboard />
+              <AFooter />
+              <AHeader />
+              <AMenu />
+
+            </Router> */}
+            
           </Switch>
         </Router>
       </div>

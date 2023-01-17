@@ -1,64 +1,48 @@
-import React, { Component } from 'react'
-// import Counts from '../../../helper/userCount/business'
-import {useState,useEffect} from 'react'
+import React, { Component,useState,useEffect } from 'react'
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "../../../dashboard/style.css"
-let counts;
-let product;
-let award;
-let service;
-let user;
-let decoded;
-export default class Dashboard extends Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {message: '',
-  message1: '',
-  message2: '',
-  message3: ''
-  };
-  }
-  
-
- 
-  async componentDidMount() {
-    try {
-      user = localStorage.getItem('userToken');
-    decoded = jwt_decode(user);
-    console.log(decoded._id);
-      Promise.all([
-        fetch(`http://localhost:4500/api/business/countById?id=${decoded._id}`),
-        fetch(`http://localhost:4500/api/product/countById?business_id=${decoded._id}`),
-        fetch(`http://localhost:4500/api/award/countById?business_id=${decoded._id}`),
-        fetch(`http://localhost:4500/api/service/countById?business_id=${decoded._id}`)
-      ]).then(async ([res1, res2, res3, res4]) => {
-        const data1 = await res1.json();
-        const data2 = await res2.json();
-        const data3 = await res3.json();
-        const data4 = await res4.json();
-        console.log(data1.data);
-        console.log(data2.data);
-        console.log(data3.data);
-        console.log(data4.data);
-        this.setState({
-          message: data1.data,
-          message1: data2.data,
-          message2: data3.data,
-          message3: data4.data
-        });
-      }
-      );
-    } catch (err) {
-      console.log(err);
-    }
-  }
-           
- 
-    render() {
+import {Link } from 'react-router-dom';
+function Dashboard (props){
+  const [requestData,setRequestData]=useState([])
+  const[countRequest,setCountRequest]=useState([])
+  const getRequestData=()=>{
+    const user= localStorage.getItem('userToken');
+     const decoded = jwt_decode(user);
+     console.log("decoded is:",decoded._id);
+     const userId=decoded._id;
      
+       axios.get(`http://localhost:4500/api/client_form/getClientById?user_id=${userId}`)
+       .then(res=>{
+        setRequestData(res.data.form[0]);
+          console.log("request data  is:",res.data.form[0]);
+       })
+       .catch(err=>{
+           console.log(err);
+       })
+   }
+   const countrequest=()=>{
+    const user= localStorage.getItem('userToken');
+     const decoded = jwt_decode(user);
+     console.log("decoded is:",decoded._id);
+     const userId=decoded._id;
+     
+       axios.get(`http://localhost:4500/api/client_form/CountClientByUserId?user_id=${userId}`)
+       .then(res=>{
+        setCountRequest(res.data.data);
+          console.log("request data  is:",res.data.data);
+       })
+       .catch(err=>{
+           console.log(err);
+       })
+   }
+  useEffect(()=>{
+    getRequestData();
+    countrequest();
+  },[])
+  // console.log("request data first name is:",requestData.first_name);
+ 
 
         return (
             <div>
@@ -80,7 +64,7 @@ export default class Dashboard extends Component {
       </div>
       <div className="profile-details">
         <i className="nav-icon fas fa-solid fa-user" />
-        <span className="admin_name">Mussa Niyo</span>
+        <span className="admin_name">Mussa Niyo</span>zz
         <i className='bx bx-chevron-down' ></i>
       </div>
           </div>
@@ -90,17 +74,19 @@ export default class Dashboard extends Component {
     </div> */}
   
 {/* my applicatio section  */}
-<section className='card-container'>
+<section className='card-containers'>
   {/* my application and button for apply */}
   <div  className='button-for-apply'>
     <div>
-      <p>My applications <span>Total:0</span></p>
+      <p>My applications <span className='NApplication'>Total: {countRequest}</span></p>
     </div>
     <div>
-    
-      <button className='apply'>
+    <Link to={`/user/user-form`}>
+    <button className='apply'>
         APPLY NOW 
       </button>
+    </Link>
+     
     </div>
   </div>
   {/* search button for document */}
@@ -115,13 +101,13 @@ export default class Dashboard extends Component {
 <div className='list-all-doc'>
  
   <div>
-    <p className='doc-title'>Title for Request<span>-</span> <span className='doc-number'>Document Number</span></p>
+    <p className='doc-title'>Request New Water Connection<span>-</span> <span className='doc-number'>Document Number:{requestData.id}</span></p>
     </div>
     
         <div className='client-info'>
-        <p className='client-name'>Client Name: <span>Mussa Niyodusenga</span> 
-         <span className='date-creation'> Date creation:</span> 
-         <span className='phone'> Phone:</span>
+        <p className='client-name'>Client Name: <span>{requestData.first_name} </span> {requestData.last_name} <span></span> 
+         <span className='date-creation'> Date creation:{requestData.creation_date} </span>  
+         <span className='phone'> Phone:{requestData.phone} </span>
         </p>
         </div>
         <div className="buttons-both">
@@ -141,8 +127,9 @@ export default class Dashboard extends Component {
 </div>
 </section>
     </div>
-</div>
+</div> 
 
         )
-    }
+    
 }
+export default Dashboard;

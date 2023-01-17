@@ -10,7 +10,7 @@ export const LOGOUT = 'LOGOUT'
     dispatch({
         type:LOGIN_REQUEST
     })
-    return axios.post('http://localhost:4500/api/business/login', credentials)
+    return axios.post('http://localhost:4500/api/user/login', credentials)
         .then(res => {
             localStorage.setItem('userToken', res.data.token);
             const user=res.data.token;
@@ -27,10 +27,10 @@ export const LOGOUT = 'LOGOUT'
                 window.location.href = "/admin-dashboard";
             }
             if (decoded.role==='user'){
-                window.location.href = "/payment";
+                window.location.href = "/user-dashboard";
             }
-            if (decoded.role==='business'){
-                window.location.href = "/user-dashboard"
+            if (decoded.role==='officer'){
+                window.location.href = "/admin-dashboard";
             }
         }).catch(err => {
             if (err.response) {

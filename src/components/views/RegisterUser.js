@@ -56,12 +56,11 @@ const handleSubmit=async(e)=>{
    
     const formData=new FormData();
     formData.append('fullname',fullname);
-    formData.append('role',role);
-    formData.append('address',address);
     formData.append('email',email);
+    // formData.append('role',role);
+    formData.append('phone',phone);
     formData.append('password',password);
-    formData.append('photo',photo);
-    console.warn("business data",fullname,role,address,email,password,photo);
+    console.warn("business data",fullname,email,phone,password);
     axios.post('http://localhost:4500/api/user/signup',formData)
     .then(res=>{
         cogoToast.success('User Created Successfully',{position:'top-center'});
@@ -70,7 +69,7 @@ const handleSubmit=async(e)=>{
     )
     .catch(err=>{
         cogoToast.error('To create user failed, try again',{position:'top-center'});
-        history.push('/register/user');
+        history.push('/register');
         console.log(err.message);
     }
     )

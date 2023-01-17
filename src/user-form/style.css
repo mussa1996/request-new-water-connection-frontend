@@ -119,10 +119,16 @@ form .fields .input-field{
     background:hwb(204 35% 3%);
     transition: all 0.3s linear;
     cursor: pointer;
+    text-decoration: none;
+    margin-left: 30px;
+}
+.sumbit{
+    background-color: #971e4c;
 }
 .user-container form .btnText{
     font-size: 14px;
     font-weight: 400;
+    
 }
 form button:hover{
     background-color: #265df2;

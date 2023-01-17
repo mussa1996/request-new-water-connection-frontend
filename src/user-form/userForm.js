@@ -9,6 +9,9 @@ import { useForm } from "react-hook-form";
 import { useFormik } from "formik";
 import { basicSchema } from "./schemas";
 import {format} from 'date-fns'
+import {Link } from 'react-router-dom';
+import cogoToast from 'cogo-toast';
+import {useHistory} from 'react-router-dom'
 function UserForm() {
 
   const styleInside={
@@ -26,7 +29,7 @@ function UserForm() {
     actions.resetFom()
     console.log("submitted");
   };
-  const { values, handleBlur, handleChange, handleSubmit, errors, touched,isSubmitting } =
+  const { values, handleBlur, handleChange,handleSubmit, errors, touched,isSubmitting } =
     useFormik({
       initialValues: {
         firstName: "",
@@ -61,6 +64,30 @@ function UserForm() {
       validationSchema: basicSchema,
       onSubmit,
     });
+  //   const history = useHistory();
+  // const [firstName, setFirstName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [phone, setPhone] = useState("");
+  // const [province, setProvince] = useState("");
+  // const [district, setDistrict] = useState("");
+  // const [sector, setSector] = useState("");
+  // const [cell, setCell] = useState("");
+  // const [country, setCountry] = useState("");
+  // const [dob, setDob] = useState("");
+  // const [occupation, setOccupation] = useState("");
+  // const [gender,setGender]=useState("");
+  // const [passportNumber, setPassportNumber] = useState("");
+  // const [idNumber, setIdNumber] = useState("");
+  // const [plotNumber, setPlotNumber] = useState("");
+  // const [creationDate, setCreationDate] = useState("");
+  // const [branchName, setBranchName] = useState("");
+  // const [waterUsage, setWaterUsage] = useState("");
+  // const [idType, setIdType] = useState("");
+  // const [idIssueDate, setIdIssueDate] = useState("");
+  // const [idExpiryDate, setIdExpiryDate] = useState("");
+  // const [idIssueAuthority, setIdIssueAuthority] = useState("");
+
   console.log(errors);
   const [value, setValue] = useState([]);
   const [districts, setDistricts] = useState([]);
@@ -137,6 +164,49 @@ function UserForm() {
      object.target.value = object.target.value.slice(0, object.target.maxLength)
       }
     }
+    
+  //   const handleSubmit=async(e)=>{
+  //     e.preventDefault();
+  //     const formData=new FormData();
+  //     formData.append('firstName',firstName);
+  //     formData.append('lastName',lastName);
+  //     formData.append('email',email);
+  //     formData.append('phone',phone);
+  //     formData.append('province',province);
+  //     formData.append('district',district);
+  //     formData.append('sector',sector);
+  //     formData.append('cell',cell);
+  //     formData.append('country',country);
+  //     formData.append('dob',dob);
+  //     formData.append('occupation',occupation);
+  //     formData.append('gender',gender);
+  //     formData.append('passportNumber',passportNumber);
+  //     formData.append('idNumber',idNumber);
+  //     formData.append('plotNumber',plotNumber);
+  //     formData.append('creationDate',creationDate);
+  //     formData.append('branchName',branchName);
+  //     formData.append('waterUsage',waterUsage);
+  //     formData.append('idType',idType);
+  //     formData.append('idIssueDate',idIssueDate);
+  //     formData.append('idExpiryDate',idExpiryDate);
+  //     formData.append('idIssueAuthority',idIssueAuthority);
+  //     formData.append('copyPassport',copyPassport);
+  //     formData.append('copyId',copyId);
+  //     console.warn("Request data",firstName,lastName,email.phone,province,district,sector,cell,country,dob,occupation,gender,passportNumber,idNumber,plotNumber,creationDate,
+  //     branchName,waterUsage,idType,idIssueDate,idExpiryDate,idIssueAuthority,copyPassport,copyId);
+  //     axios.post('http://localhost:4500/api/client_form/create',formData)
+  //     .then(res=>{
+  //         cogoToast.success('Request Created Successfully',{position:'top-center'});
+  //         history.push('/user-dashboard');
+  //     }
+  //     )
+  //     .catch(err=>{
+  //         cogoToast.error('To create request failed, try again',{position:'top-center'});
+  //         history.push('/user/user-form');
+  //         console.log(err.message);
+  //     }
+  //     )
+  // }
   console.log("testing value", value);
   let data = value;
   console.log("testing data", data);
@@ -646,14 +716,18 @@ function UserForm() {
             </div>
 
             <div className="buttons">
+              <Link to={`/user-dashboard`}>
               <div className="backBtn">
                 <i className="uil uil-navigator"></i>
+                
                 <span className="btnText">Back</span>
               </div>
+              </Link>
               <button className="sumbit" disabled={isSubmitting}>
                 <span className="btnText">Submit</span>
                 <i className="uil uil-navigator"></i>
               </button>
+             
             </div>
           </div>
         </div>
