@@ -11,8 +11,8 @@ import jwt_decode from "jwt-decode";
 import Header from "../../adminDashboard/Header"
 const columns= [
     { field: '_id', headerName: 'ID', width: 70, hide: true },
-    { field: 'fullname', headerName: 'Names', width: 130 },
-    { field: 'email', headerName: 'Email', width: 130 },
+    { field: 'fullname', headerName: 'Names', width: 160 },
+    { field: 'email', headerName: 'Email', width: 250 },
     { field: 'phone', headerName: 'Phone', width: 130 },
     { field: 'isVerified', headerName: 'Verify Status', width: 130 },
 
@@ -79,13 +79,13 @@ const List=()=>{
               renderCell: (params) => {
                 return (
                   <div className="cellAction">
-                    <Link to={`/admin/user/single/${params.row._id}`} style={{ textDecoration: "none" }}>
-                      <div className="viewButton" onClick={() => handleView(params.row._id)} >View</div>
+                    <Link to={`/view-user-details?id=${params.row._id}`} style={{ textDecoration: "none" }}>
+                      <div className="btn btn-primary" onClick={() => handleView(params.row._id)} >View</div>
                 
                     </Link>
 
                     <div
-                      className="deleteButton"
+                      className="btn btn-danger"
                       onClick={() => handleDelete(params.row._id)}
                     >
                       Delete

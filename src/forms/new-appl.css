@@ -1,0 +1,104 @@
+.card-container {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+  }
+
+    .card > hr {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    
+
+    .cards-containers {
+        box-shadow: 0px 0px 10px rgba(158, 155, 155, 0.973);
+       margin-top: 20px;
+        padding: 6rem 1rem;
+        height: 250px;
+        text-align: center;
+        border-radius: 10px;
+        border: 0px solid rgb(156, 153, 153);
+        margin: 50px 200px 50px 400px;
+      }
+      .cards-containers2 {
+        box-shadow: 0px 0px 10px rgba(158, 155, 155, 0.973);
+       margin-top: 20px;
+        padding: 6rem 1rem;
+        height: 250px;
+        text-align: center;
+        border-radius: 10px;
+        border: 0px solid rgb(156, 153, 153);
+        margin: 50px 200px 50px 400px;
+        max-height:100vh;
+        height: auto;
+      }
+      .cards-containers3 {
+        box-shadow: 0px 0px 10px rgba(158, 155, 155, 0.973);
+       margin-top: 20px;
+        padding: 6rem 1rem;
+        height: 250px;
+        text-align: center;
+        border-radius: 10px;
+        border: 0px solid rgb(156, 153, 153);
+        margin: 50px 200px 50px 400px;
+        max-height:100vh;
+        height: auto;
+      }
+      .table-style {
+        width: 100%;
+        height:100px;
+        /* padding-left: 100px;
+        padding-top:30px;
+        padding-right:100px; */
+      }
+      .title-appl{
+        font-size: 1.6rem;
+        font-weight: bold;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: rgb(32, 19, 19);
+        text-align: left;
+        margin-top: -30px;
+      }
+.confirm-btn{
+    position: absolute;
+    right:750px;
+    margin-top:5px;
+    margin-bottom: 100px;
+    font-size: 30px;
+    font-weight: 300;
+    padding: 5px 40px;
+    border-radius:10px;
+    border: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+
+}
+.btn-conf{
+    background-color: rgb(50, 50, 230);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 5px 10px;
+    border-radius:10px;
+}
+/* .viewButton{
+    background-color:hwb(209 5% 21%);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 5px 10px;
+    border-radius:10px;
+    width: 80px;
+} */
+
+
+
+    

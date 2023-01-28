@@ -10,20 +10,21 @@ import Menu from '../../adminDashboard/Menu';
 import jwt_decode from "jwt-decode";
 import Header from "../../adminDashboard/Header"
 const columns= [
-    { field: '_id', headerName: 'ID', width: 70, hide: true },
-    { field: 'first_name', headerName: 'Names', width: 130 },
-    { field: 'email', headerName: 'Email', width: 130 },
-    { field: 'phone', headerName: 'Phone', width: 130 },
-    { field: 'gender', headerName: 'Gender', width: 130 },
-    { field: 'country', headerName: 'Country', width: 130 },
-    { field: 'branch_name', headerName: 'Branch Name', width: 130 },
-    { field: 'status', headerName: 'Status', width: 130 },
+  { field: '_id', headerName: 'ID', width: 70, hide: true },
+  { field: 'first_name', headerName: 'Names', width: 130 },
+  { field: 'email', headerName: 'Email', width: 130 },
+  { field: 'phone', headerName: 'Phone', width: 130 },
+  { field: 'gender', headerName: 'Gender', width: 130 },
+  { field: 'country', headerName: 'Country', width: 130 },
+  { field: 'branch_name', headerName: 'Branch Name', width: 130 },
+  { field: 'status', headerName: 'Status', width: 130 },
 
 ];
 
 const List=()=>{
  
     const [request,setRequest]=useState([]);
+    const [oneRequest,setOneRequest]=useState([]);
     const [search,setSearch]=useState('');
     const token = localStorage.getItem('userToken')
     const details=jwt_decode(token);
@@ -61,13 +62,13 @@ const List=()=>{
         const handleView = (id) => {
           axios.get(`http://localhost:4500/api/admin/getOne/request?id=${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
           .then(res=>{
-              
-              setRequest(res.data.pro);  
+              console.log("testing request list",res.data)
+              setOneRequest(res.data.cust);  
               
           })
 
           .catch(err=>{
-              console.log(err);
+              console.log(err.message);
           })
       };
       useEffect(()=>{
@@ -80,15 +81,16 @@ const List=()=>{
               headerName: "Action",
               width: 200,
               renderCell: (params) => {
+                console.log("params", params)
                 return (
                   <div className="cellAction">
-                    <Link to={`/admin/request/single/${params.row._id}`} style={{ textDecoration: "none" }}>
-                      <div className="viewButton" onClick={() => handleView(params.row._id)} >View</div>
+                    <Link to={`/view-request-details-admin?id=${params.row._id}`} style={{ textDecoration: "none" }}>
+                      <div className="btn btn-primary" onClick={() => handleView(params.row._id)} >View</div>
                 
                     </Link>
 
                     <div
-                      className="deleteButton"
+                      className="btn btn-danger"
                       onClick={() => handleDelete(params.row._id)}
                     >
                       Delete

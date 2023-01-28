@@ -5,6 +5,17 @@ import { useHistory ,Link} from 'react-router-dom';
 import axios from 'axios';
 
 function UpdateBranch(){
+
+    const styleInside={
+        body:{
+      minHeight: "100vh",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      background: "hwb(204 35% 3%)",
+    }
+        
+      }
     const history = useHistory();
     const [branchCode,setBranchCode]=useState('');
     const [branchName,setBranchName]=useState('');
@@ -56,22 +67,44 @@ const handleSubmit=async(e)=>{
         console.log(err.message);
     })
 }
-    
    
 
     return (
-        <div className="container">
+        <div  style={styleInside.body}>
+            <div className="container-branch" >
+            {/* {(props)=>( */}
             <form>
-            <input type="text" placeholder="Branch Code" value={branchCode} onChange={(e)=>setBranchCode(e.target.value)} className="form-control"/><br/>
-            <input type="text" placeholder="Branch Name" value={branchName} onChange={(e)=>setBranchName(e.target.value)} className="form-control"/><br/>
-  
-  <button  onClick={handleSubmit} className="btnb">Update</button>
-  <Link to="/admin/branch/list">
+                <label className="laber-input">Branch Code:</label>
+                <input type="text" placeholder="Branch Code" value={branchCode} onChange={(e) => setBranchCode(e.target.value)} className="form-control" required="Branch code is required" /><br />
+                <label className="laber-input">Branch Name:</label>
+                <input type="text" placeholder="Branch Name"  value={branchName} onChange={(e) => setBranchName(e.target.value)} className="form-control" required="Branch name is required" /><br />
+                {/* <button  onClick={handleSubmit} className="btnb">Add</button> */}
+                {/* <Link to="/admin/branch/list">
   <button  className="btnbb">Back</button>
-            </Link>
-               
-               </form>
+            </Link> */}
+
+
+                <div className="buttonses">
+                    <Link to="/admin/branch/list">
+                        <div className="backBtnes">
+                            <i className="uil uil-navigator"></i>
+
+                            <span className="btnTextes">Back</span>
+                        </div>
+                    </Link>
+                    <div>
+                        <button onClick={handleSubmit} type="submit" className="add-btn">
+                            <span className="btnTextes">Update Branch</span>
+                        </button>
+
+                    </div>
+                </div>
+
+            </form>
+            {/* )} */}
+            </div>
         </div>
     )
+
 }
 export default UpdateBranch;

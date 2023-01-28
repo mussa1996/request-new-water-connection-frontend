@@ -5,35 +5,18 @@ import Button from '@mui/material/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import jwt_decode from "jwt-decode";
-let user;
-let decoded;
-let photo;
-let logout;
-export default class Menu extends Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {logout: '',
-  user: '',
-  decoded: '',
-  photo: ''};
-  
-  
-  }
-  
-  async componentDidMount() {
-    user = localStorage.getItem('userToken');
-    decoded = jwt_decode(user);
-    console.log(decoded.name);
-    console.log(decoded.photo);
-    this.setState({
-      user: decoded.name,
-      decoded: decoded,
-      photo: decoded.photo
-    });
+const Menu =()=> {
+
+  const history = useHistory();
+
+  const handleLogout = () => {
+    // remove user's authentication information from the application's state
+    localStorage.removeItem('token');
+    // redirect the user to the login page
+    history.push('/login');
+  };
+
     
-  }
-    render() {
         return (
         
           
@@ -53,13 +36,13 @@ export default class Menu extends Component {
       <ul className="nav-links">
         <li className='main-page'>
         
-          <a href="#" className="active">
+          <a href="/user-dashboard" className="active">
           <i className="nav-icon fas fa-duotone fa- fa-house" />
             <span className="links_name">Main Page</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="/user-dashboard">
           <i className="nav-icon fas fa-regular fa-house-chimney" />
             <span className="links_name">My Application</span>
           </a>
@@ -72,12 +55,13 @@ export default class Menu extends Component {
             <span className="links_name">Setting</span>
           </a>
         </li>
+        <button onClick={handleLogout}>
         <li className="log_out">
-          <a href="#">
           <i className="nav-icon fas fa-solid fa-right-from-bracket" />
-            <span className="links_name">Log out</span>
-          </a>
+            <span className="links_name" style={{color:'white'}}>Log out</span>
         </li>
+        </button>
+       
       </ul>
   </div>
     </div>
@@ -88,6 +72,8 @@ export default class Menu extends Component {
 
 
         )
-    }
+    
     
 }
+
+export default Menu;

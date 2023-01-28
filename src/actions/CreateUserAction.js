@@ -12,7 +12,8 @@ const signup = (credentials)=>async dispatch=>{
 })
     return axios.post('http://localhost:4500/api/user/signup', credentials)
         .then(res => {
-            localStorage.setItem('userToken', res.data.token);
+            console.log("signup data",res)
+            localStorage.setItem('userTokenSign', res.data.token);
             dispatch({
                 type: REQUEST_SUCCESS,
                 payload:res.data

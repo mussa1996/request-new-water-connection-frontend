@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import {Link} from 'react-router-dom';
 import jwt_decode from "jwt-decode";
 import WasacImage from "../../images/wasac.png"
+import { useHistory } from "react-router-dom";
 const Header=() =>{
   const [logout,setLogout]=useState('')
     const token = localStorage.getItem('userToken')
@@ -18,6 +19,14 @@ const Header=() =>{
     setLogout();
 }
 ,[])
+const history = useHistory();
+
+  const handleLogout = () => {
+    // remove user's authentication information from the application's state
+    localStorage.removeItem('token');
+    // redirect the user to the login page
+    history.push('/login');
+  };
         return (
            <div>
   <Box sx={{ flexGrow: 1 }} className="header-all">
@@ -55,11 +64,7 @@ const Header=() =>{
             </Link>
           </i>
            
-          <Button variant="contained"  onClick={()=>{
-         logout = localStorage.removeItem('userToken');
-         setLogout({logout:logout})
-           window.location.href = '/login';
-            }}>Log Out</Button>
+          <Button variant="contained"  onClick={handleLogout}>Log Out</Button>
         </Toolbar>
       </AppBar>
     </Box>

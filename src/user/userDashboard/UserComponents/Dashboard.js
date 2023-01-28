@@ -4,9 +4,24 @@ import jwt_decode from "jwt-decode";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "../../../dashboard/style.css"
 import {Link } from 'react-router-dom';
+
 function Dashboard (props){
   const [requestData,setRequestData]=useState([])
   const[countRequest,setCountRequest]=useState([])
+  const [showSubmit, setShowSubmit] = useState(true);
+  const [showEdit, setShowEdit] = useState(false);
+  const [request,setRequest]=useState([])
+  const token = localStorage.getItem('userToken')
+  const handleShowEdit = () => {
+    setShowEdit(true);
+    setShowSubmit(false);
+  }
+
+  const handleHideEdit = () => {
+    setShowEdit(false);
+    setShowSubmit(true);
+  }
+  
   const getRequestData=()=>{
     const user= localStorage.getItem('userToken');
      const decoded = jwt_decode(user);
@@ -15,8 +30,8 @@ function Dashboard (props){
      
        axios.get(`http://localhost:4500/api/client_form/getClientById?user_id=${userId}`)
        .then(res=>{
-        setRequestData(res.data.form[0]);
-          console.log("request data  is:",res.data.form[0]);
+        setRequestData(res.data.form);
+          console.log("request data  is:",res.data.form);
        })
        .catch(err=>{
            console.log(err);
@@ -42,7 +57,31 @@ function Dashboard (props){
     countrequest();
   },[])
   // console.log("request data first name is:",requestData.first_name);
- 
+  console.log("request data is:",requestData)
+
+  requestData.map((data,index)=>{
+   
+    console.log("request data is loop:",data.first_name)
+  })
+
+  let responseSent = false;
+  const handleView = (id) => {
+    axios.get(`http://localhost:4500/api/client_form/getOne?id=${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
+    .then(res=>{
+        console.log("request data  is:",res.data.cust);
+        if(!responseSent){
+            setRequest(res.data.cust);
+            responseSent = true;
+        } 
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+  };
+  useEffect(()=>{
+  handleView()
+  }
+  ,[])
 
         return (
             <div>
@@ -98,33 +137,61 @@ function Dashboard (props){
       </div>
   </div>
   {/* list of all document  */}
-<div className='list-all-doc'>
+{
+
+  requestData.map((data,index)=>{
+    let date = new Date(data.creation_date);
+    let formattedDate =date.toLocaleDateString();
+    return <div key={index}>
+
+
+    <div className='list-all-doc'>
  
   <div>
-    <p className='doc-title'>Request New Water Connection<span>-</span> <span className='doc-number'>Document Number:{requestData.id}</span></p>
+    <p className='doc-title'>Request New Water Connection<span>-</span> <span className='doc-number'>Document Number:{data.id}</span></p>
     </div>
     
         <div className='client-info'>
-        <p className='client-name'>Client Name: <span>{requestData.first_name} </span> {requestData.last_name} <span></span> 
-         <span className='date-creation'> Date creation:{requestData.creation_date} </span>  
-         <span className='phone'> Phone:{requestData.phone} </span>
+        <p className='client-name'>Client Name: <span>{data.first_name} </span> {data.last_name} <span></span> 
+         <span className='date-creation'> Date creation:{formattedDate} </span>  
+         <span className='phone'> Phone:{data.phone} </span>
         </p>
         </div>
         <div className="buttons-both">
               <div className="details-btn">
                 <i className="uil uil-navigator"></i>
-                <span className="btnText">Details</span>
+
+                <Link to={`/view-request-details?id=${data.id}`} style={{ textDecoration: "none" }}>
+                      <div className="viewButton" onClick={() => handleView(data.id)} >
+                        <span className="btnText">Details</span></div>
+                
+                    </Link>
+                
               </div>
-              <button className="edit">
-                <span className="btnText">Edit Application</span>
+             {
+                data.status==='Returned' ? ( 
+                <Link to={`/user/update-form?id=${data.id}`} style={{ textDecoration: "none" }}>
+                <button className="edit" onClick={()=>handleView(data.id)}>
+                <span className="btnText">Edit Application</span> 
                 <i className="uil uil-navigator"></i>
               </button>
-              <button className="submit">
+               </Link>
+                ):null
+  }
+              {
+                data.status==='Pending'?
+                (
+               <button className="submit" onClick={handleHideEdit}>
                 <span className="btnText">Submitted</span>
                 <i className="uil uil-navigator"></i>
               </button>
+                ):null
+              }
             </div>
 </div>
+</div>
+  })
+}
 </section>
     </div>
 </div> 

@@ -1,0 +1,125 @@
+/* client information style */
+.containers{
+    padding: 50px;
+    margin: 50px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+}
+.client-data{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr) ; 
+    grid-gap: 15px;
+}
+.title-client{
+    color: rgb(29, 23, 23);
+    font-size: 30px;
+    font-weight:bold;
+    display: flex;
+    
+}
+.client-label{
+    color: rgb(17, 16, 16);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.client-details{
+    color: rgb(73, 59, 59);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* 
+Billing table style */
+
+ td,tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  #customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid rgb(26, 24, 24);
+    padding: 8px;
+  }
+  
+  /* #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;} */
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+  .amount{
+    color: rgb(29, 23, 23);
+    font-size: 20px;
+    font-weight:bold;
+    display: flex;
+    padding-top: 20px;
+    padding-right: 1500px;
+  }
+  .amount-in-words{
+    color: rgb(58, 53, 53);
+    font-size: 20px;
+    font-weight:bold;
+    display: flex;
+    padding-top: 20px;
+  }
+/* th{
+    background-color: #588c7e;
+    color: white;
+}
+tr:nth-child(even) {background-color: #f2f2f2}
+
+thead{
+    background-color: #588c7e;
+    color: white;
+}
+tr{
+    background-color: #f2f2f2;
+
+}
+td{
+    padding: 10px;
+} */
+
+
+
+/* worked by information style */
+
+.workedon{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr) ; 
+    grid-gap: 15px;
+}
+.title-by{
+    color: rgb(29, 23, 23);
+    font-size: 30px;
+    font-weight:bold;
+    
+}
+.role{
+    color: rgb(17, 16, 16);
+    font-size: 20px;
+    /* padding-left: 200px; */
+    padding-top: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.footer-title{
+    color: rgb(29, 23, 23);
+    font-size: 25px;
+    padding:0px;
+    /* padding-left: 210px; */
+    padding-top: 100px;
+}
+.foot{
+    display:flex;
+}

@@ -25,10 +25,24 @@ import UpdateBranch from"../admin/branch/update/Update"
 import NewBranch from "../admin/branch/new/New"
 import SingleBranch from"../admin/branch/single/Single"
 import UserList from "../admin/user/list/list"
+import NewApplicant from "../forms/new-appl"
 // import SingleUser from "../admin/user/single/Single"
 // import UpdateUser from "../admin/user/update/Update"
 import RequestList from"../admin/request/list/list"
-
+import ViewRequestDetails from "../forms/view-request-details" 
+import ViewRequestDetailsAdmin from "../forms/view-request-details-admin" 
+import ViewUserDetails from "../forms/view-user-details"
+import ViewBranchDetails from "../forms/view-branch-details"
+import ViewRequestDetailsDash from "../forms/view-request-details-dash"
+import ViewRequestDetailsReturn from "../forms/view-request-details-return"
+import Application from "../forms/application"
+import BillingQuantities from "../admin/billing-quantities/billing-quantities"
+import UpdateRequest from "../user-form/updateForm"
+import ReturnApplication from "../forms/return-application"
+import CompleteApplication from "../forms/complete-application"
+import CApplication from "../forms/Capplication"
+import RApplication from "../forms/Rapplication"
+import AllApplication from "../forms/all-application "
 export default function Routers() {
   // const { darkMode } = useContext(DarkModeContext);
 
@@ -44,7 +58,14 @@ export default function Routers() {
             <Route exact path="/verification" component={Verify} />
             <Route exact component={Forgot} path="/forgot-password" />
             <Route exact component={Resetpassword} path="/resetpassword" />
-   
+            <Route exact  path="/newapply" component={NewApplicant} />
+            <Route exact  path="/view-request-details" component={ViewRequestDetails} />
+            <Route exact  path="/view-application" component={Application} />
+            <Route   exact path="/return-application" component={ReturnApplication} />
+            <Route   exact path="/complete-application" component={CompleteApplication} />
+            <Route   exact path="/capplication" component={CApplication} />
+            <Route   exact path="/rapplication" component={RApplication} />
+            <Route   exact path="/all-application" component={AllApplication} />
             {/* order routes */}
             {/* <ProtectedRoute path="/order-dashboard" >
               <OrderDashboard />
@@ -85,6 +106,13 @@ export default function Routers() {
               {/* <ProtectedRoute path="/admin/user/single" component={SingleUser} />
               <ProtectedRoute path="/admin/user/update" component={UpdateUser} /> */}
               <ProtectedRoute path="/admin/request/list" component={RequestList} />
+              <ProtectedRoute path="/admin/billing-quantities" component={BillingQuantities} />
+              <ProtectedRoute path="/view-request-details-admin" component={ViewRequestDetailsAdmin} />
+              <ProtectedRoute path="/view-user-details" component={ViewUserDetails} />
+              <ProtectedRoute path="/view-branch-details" component={ViewBranchDetails} />
+              <ProtectedRoute path="/view-request-details-dash" component={ViewRequestDetailsDash} />
+              <ProtectedRoute path="/view-request-details-return" component={ViewRequestDetailsReturn} />
+              {/* <ProtectedRoute path="/admin/forms/new-appl" component={NewApplicant} /> */}
             {/* <ProtectedRoute path="/list" component={List} />
               <ProtectedRoute path="/single" component={Single} />
               <ProtectedRoute path="/award/single" component={AwardSingle} />
@@ -106,14 +134,21 @@ export default function Routers() {
             <ProtectedRoute path="/user-dashboard">
               <Dashboard />
               <Footer />
-              <Header />
-              <Menu />
+              <Header /> 
+              <Menu /> 
               </ProtectedRoute>
               <ProtectedRoute
                 path="/user/user-form"
                 component={UserForm}
               />
-             
+              <Route
+              path="/user/validation"
+              component={validation}
+              />
+             <ProtectedRoute
+                path="/user/update-form"
+                component={UpdateRequest}
+              />
               {/* <ProtectedRoute
                 path="/user/product/single"
                 component={UProductSingle}

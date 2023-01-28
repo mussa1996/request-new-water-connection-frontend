@@ -1,0 +1,117 @@
+/* ===== Google Font Import - Poppins ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.user-containerss{
+    position: relative;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 30px 15px;
+    background-color: #fff;
+    box-shadow: 20px 20px 20px 20px rgba(7, 7, 7, 0.1);
+}
+.user-containerss header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+.user-containerss header::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 8px;
+    background-color: #4070f4;
+}
+.user-containerss form{
+    position: relative;
+    margin-top: 16px;
+    min-height:25vh;
+    width:350px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.user-containerss form .title{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #333;
+}
+
+form .field-views .input-views{
+    display: inline-block;
+    margin: 4px 5px;
+}
+.label-datas{
+    font-size: 12px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+.user-containerss form button, .backBtns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 130px;
+    width: 50%;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+   
+    background:hwb(204 35% 3%);
+    transition: all 0.3s linear;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 100px;
+}
+.user-containerss form .btnTexts{
+    font-size: 14px;
+    font-weight: 400;
+    
+}
+form .backBtns:hover{
+    background-color: #265df2;
+}
+form .backBtn i{
+    transform: rotate(180deg);
+}
+form .buttons button , .backBtn{
+    margin-right: 14px;
+}
+button:disabled{
+    opacity: 0.35;
+}
+.label-fonts{
+    font-size: 14px;
+    color: #886b6b;
+    padding: 5px;
+}
+
+@media (max-width: 750px) {
+    .user-containerss form{
+        overflow-y: scroll;
+    }
+    .user-containerss form::-webkit-scrollbar{
+       display: none;
+    }
+    form .field-views .input-views{
+        width: calc(100% / 2 - 15px);
+    }
+}
+
+@media (max-width: 550px) {
+    form .field-views .input-views{
+        width: 100%;
+    }
+}

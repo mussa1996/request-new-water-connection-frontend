@@ -51,6 +51,8 @@
     color: darkblue;
     border: 1px dotted rgba(0, 0, 139, 0.596);
     cursor: pointer;
+    background-color: blue;
+    width: 70px;
 }
 
 .deleteButton {

@@ -61,7 +61,7 @@ export default class Menu extends Component {
          
           
           <li className="nav-item has-treeview" >
-            <a href="#" className="nav-link">
+            <a  className="nav-link">
               <i className="nav-icon fas fa-table" />
               <p>
                 Applications

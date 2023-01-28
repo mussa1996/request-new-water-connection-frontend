@@ -11,8 +11,8 @@ import Header from "../../adminDashboard/Header"
 
 const columns= [
     { field: '_id', headerName: 'ID', width: 70, hide: true },
-    { field: 'branch_code', headerName: 'Branch Code', width: 130 },
-    { field: 'branch_name', headerName: 'Branch Name', width: 130 },
+    { field: 'branch_code', headerName: 'Branch Code', width: 150 },
+    { field: 'branch_name', headerName: 'Branch Name', width: 150 },
 
 ];
 
@@ -69,22 +69,22 @@ const List=()=>{
             {
               field: "action",
               headerName: "Action",
-              width: 200,
+              width: 300,
               renderCell: (params) => {
                 return (
                   <div className="cellAction">
                     <div>
                     <Link to={`/admin/branch/update/${params.row._id}`}style={{ textDecoration: "none" }}>
-                      <div className="viewButton" onClick={() => handleView(params.row._id)} >Update</div>
+                      <div className="btn btn-success" onClick={() => handleView(params.row._id)} >Update</div>
                     </Link>
                     </div>
-                    <Link to={`/admin/branch/single/${params.row._id}`} style={{ textDecoration: "none" }}>
-                      <div className="viewButton" onClick={() => handleView(params.row._id)} >View</div>
+                    <Link to={`/view-branch-details?id=${params.row._id}`} style={{ textDecoration: "none" }}>
+                      <div className="btn btn-primary" onClick={() => handleView(params.row._id)} >View</div>
                 
                     </Link>
 
                     <div
-                      className="deleteButton"
+                      className="btn btn-danger"
                       onClick={() => handleDelete(params.row._id)}
                     >
                       Delete
@@ -121,7 +121,8 @@ const List=()=>{
               Add New
             </Link>
           </div>
-          <Menu /><div style={{ height: 500, width: '100%',paddingLeft:'300px',paddingTop:'30px',paddingRight:'100px'}}>
+          <Menu />
+          <div style={{ height: 500, width: '100%',paddingLeft:'300px',paddingTop:'30px',paddingRight:'100px'}}>
             {/* <input type="text" placeholder='Search' className='search' onChange={handleSearch}></input> */}
             <DataGrid
               rows={rowData}

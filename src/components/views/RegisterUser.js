@@ -60,9 +60,11 @@ const handleSubmit=async(e)=>{
     // formData.append('role',role);
     formData.append('phone',phone);
     formData.append('password',password);
-    console.warn("business data",fullname,email,phone,password);
+    console.warn("user data",fullname,email,phone,password);
     axios.post('http://localhost:4500/api/user/signup',formData)
     .then(res=>{
+      console.log("signup data",res.data.token)
+            localStorage.setItem('userTokenSign', res.data.token);
         cogoToast.success('User Created Successfully',{position:'top-center'});
         history.push('/login');
     }

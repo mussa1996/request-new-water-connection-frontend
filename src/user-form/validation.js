@@ -1,34 +1,49 @@
 import React, { useState } from "react";
-import validator from 'validator'
-  
-const App = () => {
-  
-  const [errorMessage, setErrorMessage] = useState('')
-  
-  const validate = (textInput) => {
-  
-    if (validator.isPassportNumber(textInput,'IN')) {
-      setErrorMessage('Is Valid Passport Number')
-    } else {
-      setErrorMessage('Is Invalid Passport Number')
-    }
-  }
-  
+
+export default function App() {
+  const [entries, setEntries] = useState([
+    { name: "Name 1" },
+    { name: "Name 2" }
+  ]);
+  const [indexToEdit, setIndexToEdit] = useState(-1);
   return (
-    <div style={{
-      marginLeft: '200px',
-    }}>
-      <pre>
-        <h2>Validate Passport Number in ReactJS</h2>
-        <span>Enter Passport Number: </span><input type="text"
-          onChange={(e) => validate(e.target.value)}></input> <br />
-        <span style={{
-          fontWeight: 'bold',
-          color: 'red',
-        }}>{errorMessage}</span>
-      </pre>
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <td>Name</td>
+          <td>Button</td>
+        </tr>
+      </thead>
+      <tbody>
+        {entries.map((entry, recordIdx) => (
+          <tr>
+            <td>
+              <input
+                type="text"
+                value={entry.name}
+                disabled={recordIdx !== indexToEdit}
+                onChange={(val) => {
+                  let _entries = [...entries];
+                  _entries[indexToEdit] = val;
+                  setEntries(_entries);
+                }}
+                onBlur={() => {
+                  setIndexToEdit(-1);
+                }}
+              />
+            </td>
+            <td>
+              <button
+                onClick={() => {
+                  setIndexToEdit(recordIdx);
+                }}
+              >
+                Edit
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
-  
-export default App
